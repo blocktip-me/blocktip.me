@@ -26,7 +26,7 @@
 		label="Blocktip link"
 		name="link"
 		bind:value={inputs.username}
-		inline="blocktip.me/sol/"
+		inline="blocktip.me/"
 		placeholder="yourname"
 	/>
 	<CreatePageInput isTextArea label="About" name="about" bind:value={inputs.about} placeholder="" />

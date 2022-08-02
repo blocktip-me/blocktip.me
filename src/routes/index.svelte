@@ -4,10 +4,10 @@
 
 <div class="mt-20 px-3 md:px-24 lg:px-40 md:mt-40">
 	<div class="flex flex-col gap-5 text-center">
-		<h1 class="text-6xl font-bold text-center">A supporter is worth a thousand followers.</h1>
+		<h1 class="text-6xl font-bold text-center">Putting the "WE" in WAGMI.</h1>
 
 		<h2 class="text-3xl font-light text-center">
-			Accept donations. Start a membership. Sell anything you like. It’s easier than you think.
+			Accept donations in crypto. Powered by Solana, and open-source.
 		</h2>
 
 		<StartPage />

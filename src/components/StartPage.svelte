@@ -7,7 +7,7 @@
 	action="/create-page"
 >
 	<div class="p-3">
-		<span class="font-semibold">blocktip.io/</span>
+		<span class="font-semibold">blocktip.me/</span>
 		<input
 			type="text"
 			name="username"
