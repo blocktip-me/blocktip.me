@@ -6,10 +6,13 @@
 	import createProfile from '../helpers/createProfile';
 	import type { User } from '../types/user';
 	import { walletStore } from '@svelte-on-solana/wallet-adapter-core';
+	import { workSpace } from '@svelte-on-solana/wallet-adapter-anchor';
+	import initProfile from '../rpc/initProfile';
 
 	let inputs = {
 		name: '',
 		username: $page.url.searchParams.get('username') ?? '',
+		royalty: true,
 		about: '',
 		website: '',
 		twitter: '',
@@ -35,7 +38,9 @@
 			}
 		};
 
-		await createProfile(user);
+		const { data, error } = await createProfile(user);
+		const id = data![0].id;
+		await initProfile($walletStore.publicKey, $workSpace.program, id, inputs.royalty);
 	}
 
 	$: console.table(inputs);
