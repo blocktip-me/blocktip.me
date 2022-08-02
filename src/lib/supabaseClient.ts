@@ -8,8 +8,8 @@ const options = {
 	detectSessionInUrl: true
 };
 
-const projectUrl = process.env.SUPABASE_URL || '';
-const anonKey = process.env.SUPABASE_ANON_KEY || '';
+const projectUrl = import.meta.env.VITE_SUPABASE_URL || '';
+const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
 const supabase = createClient(projectUrl, anonKey, options);
 

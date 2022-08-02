@@ -1,5 +1,8 @@
 <script lang="ts">
 	import StartPage from '../components/StartPage.svelte';
+	import supabase from '../lib/supabaseClient';
+
+	console.log(supabase);
 </script>
 
 <div class="mt-20 px-3 md:px-24 lg:px-40 md:mt-40">
