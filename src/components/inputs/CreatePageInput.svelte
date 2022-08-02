@@ -14,7 +14,7 @@
 	<div class="outline outline-2 p-3 rounded-lg mt-2 flex">
 		<span class="text-slate-400">{inline}</span>
 		{#if !isTextArea}
-			<input class="focus:outline-none" {label} {placeholder} {name} bind:value />
+			<input class="focus:outline-none w-full" {label} {placeholder} {name} bind:value />
 		{/if}
 		{#if isTextArea}
 			<div
