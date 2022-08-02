@@ -37,6 +37,7 @@
 		"@project-serum/anchor": "^0.24.2",
 		"@solana/wallet-adapter-wallets": "^0.16.8",
 		"@solana/web3.js": "^1.48.0",
+		"@supabase/supabase-js": "^1.35.4",
 		"@svelte-on-solana/wallet-adapter-anchor": "^1.0.14-alpha.0",
 		"@svelte-on-solana/wallet-adapter-core": "^1.0.6-alpha.0",
 		"@svelte-on-solana/wallet-adapter-ui": "^1.0.17-alpha.0"
