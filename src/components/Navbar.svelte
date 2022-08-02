@@ -8,20 +8,12 @@
 		<a href="/explore">Explore Creators</a>
 	</div>
 
-	<div class="rounded-full overflow-hidden">
+	<div>
 		<WalletMultiButton />
 	</div>
 </nav>
 
 <style>
-	.navbar {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-
-		background-color: rgb(255, 255, 255);
-	}
-
 	a {
 		text-decoration: none;
 		color: #000;
