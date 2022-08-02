@@ -8,7 +8,10 @@
 		name: '',
 		username: $page.url.searchParams.get('username') ?? '',
 		about: '',
-		website: ''
+		website: '',
+		twitter: '',
+		youtube: '',
+		github: ''
 	};
 
 	$: console.table(inputs);
@@ -23,13 +26,26 @@
 		label="Blocktip link"
 		name="link"
 		bind:value={inputs.username}
-		inline="blocktip.io/"
+		inline="blocktip.me/sol/"
 		placeholder="yourname"
 	/>
 	<CreatePageInput isTextArea label="About" name="about" bind:value={inputs.about} placeholder="" />
 	<CreatePageInput
 		label="Website or social link"
 		placeholder="https://"
+		name="website"
+		bind:value={inputs.website}
+	/>
+	<CreatePageInput
+		label="Twitter"
+		inline="twitter.com/"
+		name="website"
+		bind:value={inputs.twitter}
+	/>
+	<CreatePageInput label="Github" inline="github.com/" name="website" bind:value={inputs.github} />
+	<CreatePageInput
+		label="Youtube"
+		inline="youtube.com/"
 		name="website"
 		bind:value={inputs.website}
 	/>
