@@ -3,6 +3,9 @@
 	import CreatePageInput from '../components/inputs/CreatePageInput.svelte';
 	import ImageUpload from '../components/inputs/ImageUpload.svelte';
 	import { page } from '$app/stores';
+	import createProfile from '../helpers/createProfile';
+	import type { User } from '../types/user';
+	import { walletStore } from '@svelte-on-solana/wallet-adapter-core';
 
 	let inputs = {
 		name: '',
@@ -14,10 +17,34 @@
 		github: ''
 	};
 
+	async function handleSubmit(event: SubmitEvent) {
+		event.preventDefault();
+
+		const user: User = {
+			username: inputs.username,
+			about: inputs.about,
+			display_name: inputs.name,
+			links: {
+				website: inputs.website,
+				twitter: inputs.twitter,
+				youtube: inputs.youtube,
+				github: inputs.github
+			},
+			wallets: {
+				sol: $walletStore.publicKey?.toString() as string
+			}
+		};
+
+		await createProfile(user);
+	}
+
 	$: console.table(inputs);
 </script>
 
-<form class="flex flex-col items-center justify-center pt-20 gap-10 mx-auto w-full max-w-md">
+<form
+	class="flex flex-col items-center justify-center pt-20 gap-10 mx-auto w-full max-w-md"
+	on:submit={handleSubmit}
+>
 	<h1 class="font-medium text-3xl">Complete your page</h1>
 
 	<ImageUpload />
@@ -47,8 +74,9 @@
 		label="Youtube"
 		inline="youtube.com/"
 		name="website"
-		bind:value={inputs.website}
+		bind:value={inputs.youtube}
 	/>
 
-	<InitProfileButton />
+	<!-- <InitProfileButton /> -->
+	<button type="submit">temp</button>
 </form>
