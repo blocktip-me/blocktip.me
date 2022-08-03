@@ -7,7 +7,7 @@
 	import type { User } from '../types/user';
 	import { walletStore } from '@svelte-on-solana/wallet-adapter-core';
 	import { workSpace } from '@svelte-on-solana/wallet-adapter-anchor';
-	import initProfile from '../rpc/initProfile';
+	import initProfileRpc from '../rpc/initProfile';
 
 	let inputs = {
 		name: '',
@@ -27,6 +27,7 @@
 			username: inputs.username,
 			about: inputs.about,
 			display_name: inputs.name,
+			royalty: inputs.royalty,
 			links: {
 				website: inputs.website,
 				twitter: inputs.twitter,
@@ -40,7 +41,13 @@
 
 		const { data, error } = await createProfile(user);
 		const id = data![0].id;
-		await initProfile($walletStore.publicKey, $workSpace.program, id, inputs.royalty);
+		const userProfileAccount = await initProfileRpc(
+			$walletStore.publicKey,
+			$workSpace.program,
+			id,
+			inputs.royalty
+		);
+		console.log(userProfileAccount);
 	}
 
 	$: console.table(inputs);
